@@ -1,0 +1,19 @@
+{
+  "containerDefinitions": [{
+      "name": "pink-slon",
+      "image": "133631580572.dkr.ecr.us-east-1.amazonaws.com/repoforecr:latest",
+      "cpu": 10,
+      "memory": 500,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000 ,
+          "hostPort": 0
+        }
+      ]
+    }
+  ],
+  "family": "web-family",
+  "networkMode": "bridge"
+
+}
