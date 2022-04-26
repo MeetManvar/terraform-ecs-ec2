@@ -1,13 +1,13 @@
 [
     {
       "name": "pink-slon",
-      "image": "980049198801.dkr.ecr.us-east-1.amazonaws.com/nodejs:latest",
+      "image": "public.ecr.aws/i4y9b5h8/spm:latest",
       "cpu": 10,
       "memory": 500,
       "essential": true,
       "portMappings": [
         {
-          "containerPort": 3000 ,
+          "containerPort": 8000 ,
           "hostPort": 0
         }
       ]

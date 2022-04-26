@@ -2,13 +2,13 @@ pipeline
 {
     agent any
      environment {
-        registry = "133631580572.dkr.ecr.us-east-1.amazonaws.com/repoforecr"
+        registry = "public.ecr.aws/i4y9b5h8/spm"
     }
     stages{
         stage('Clone'){
         steps{
     
-            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/techay-mihir-simform/terraform_backend.git']]])
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/MeetManvar/terraform-ecs-ec2.git']]])
         
         }   
          }
@@ -23,8 +23,8 @@ pipeline
         stage('Push to ECR'){
             steps{
                 script {
-                sh 'docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 133631580572.dkr.ecr.us-east-1.amazonaws.com'
-                sh 'docker push 133631580572.dkr.ecr.us-east-1.amazonaws.com/repoforecr:latest'
+                sh 'docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) public.ecr.aws/i4y9b5h8'
+                sh 'docker push public.ecr.aws/i4y9b5h8/spm:latest'
          
          }
             }

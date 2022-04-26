@@ -11,7 +11,7 @@ resource "aws_autoscaling_group" "example" {
   #launch_configuration= aws_launch_configuration.ecs_launch_config.name
   tag {
     key                 = "Name"
-    value               = "Ecs-instance-Mihir-${var.cluster_name}"
+    value               = "Ecs-instance-${var.cluster_name}"
     propagate_at_launch = true
   }
   protect_from_scale_in = true
@@ -68,7 +68,7 @@ resource "aws_launch_template" "example" {
   iam_instance_profile{
     arn=aws_iam_instance_profile.ecs_agent.arn
   }
-  key_name="my_key"
+  key_name="meet"
   user_data = base64encode("#!/bin/bash\necho ECS_CLUSTER=${var.cluster_name} >> /etc/ecs/ecs.config")
    #vpc_security_group_ids = ["${aws_security_group.sg.id}"]
    network_interfaces {
